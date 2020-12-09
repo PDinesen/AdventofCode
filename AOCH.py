@@ -1,12 +1,13 @@
 from operator import itemgetter
 
+
 def ril(filename):
     return [line.rstrip('\n') for line in open(filename)]
 
 
-def ril2(filename, splititem):
+def ril2(filename, split_item):
     temp = [line.rstrip('\n') for line in open(filename)]
-    return group(temp, splititem)
+    return group(temp, split_item)
 
 
 def ricl(filename):
@@ -18,27 +19,27 @@ def risl(line):
     return line.split(' ')
 
 
-def group(listname, split):
+def group(list_name, split):
     temp = []
     res = []
-    for i in listname:
+    for i in list_name:
         if i == split:
             res.append(temp)
-            temp=[]
+            temp = []
         else:
             temp.append(i)
     res.append(temp)
     return res
 
 
-def stt(listname):
+def stt(list_name):
     temp = []
-    for i in listname:
+    for i in list_name:
         temp.append(int(i))
     return temp
 
 
-def passwordinput(filename):
+def password_input(filename):
     input2 = ril(filename)
 
     for i in range(len(input2)):

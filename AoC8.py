@@ -10,21 +10,21 @@ for i in range(len(input8)):
     temp[i][1] = int(temp[i][1])
 
 
-def run(itemlist):
+def run(item_list):
     acc = 0
     visited = []
     k = 0
-    while k < len(itemlist):
+    while k < len(item_list):
         if k in visited:
             return [acc, 0]
-        elif itemlist[k][0] == 'acc':
+        elif item_list[k][0] == 'acc':
             visited.append(k)
-            acc += itemlist[k][1]
+            acc += item_list[k][1]
             k += 1
-        elif itemlist[k][0] == 'jmp':
+        elif item_list[k][0] == 'jmp':
             visited.append(k)
-            k += itemlist[k][1]
-        elif itemlist[k][0] == 'nop':
+            k += item_list[k][1]
+        elif item_list[k][0] == 'nop':
             visited.append(k)
             k += 1
     return [acc, 1]
@@ -33,9 +33,9 @@ def run(itemlist):
 print('First part the acc reached ' + str(run(temp)[0]))
 
 
-def run2(itemlist):
-    for k in range(len(itemlist)):
-        temp1 = itemlist.copy()
+def run2(item_list):
+    for k in range(len(item_list)):
+        temp1 = item_list.copy()
         if temp1[k][0] == 'jmp':
             temp1[k][0] = 'nop'
             save = run(temp1)
