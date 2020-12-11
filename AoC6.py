@@ -1,10 +1,6 @@
 import AOCH
 
 input6 = AOCH.ril('input6.txt')
-# test = ['abc', 'cde', '', 'aaf', 'a']
-print(input6)
-test = AOCH.ril2('input6.txt', '')
-print(test)
 
 
 def run(input_list):
@@ -23,9 +19,7 @@ def run(input_list):
     return count
 
 
-print(run(input6))
-print('j' in 'ja')
-print(AOCH.group(input6, '')[0])
+print('Part 1: ' + str(run(input6)))
 
 
 def run2(input_list):
@@ -45,6 +39,4 @@ def run2(input_list):
     return count
 
 
-print(run2(AOCH.group(test, '')))
-print(AOCH.group(input6, ''))
-print(run2(AOCH.group(input6, '')))
+print('Part 2: ' + str(run2(AOCH.group(input6, ''))))

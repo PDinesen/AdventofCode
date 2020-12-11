@@ -1,16 +1,11 @@
 import AOCH
-from math import comb
 
 input10 = AOCH.ril('input10.txt')
-# input10 = AOCH.ril('test')
-
-print(input10)
 
 input10 = list(map(int, input10))
 input10.append(0)
 input10.append(max(input10) + 3)
 input10 = sorted(input10)
-print(max(input10))
 
 
 def diff_in_list(input_list):
@@ -23,11 +18,10 @@ def diff_in_list(input_list):
 def run(input_list):
     temp = diff_in_list(input_list)
 
-    print(temp)
     return [temp.count(1), temp.count(3), temp.count(1) * temp.count(3)]
 
 
-run(input10)
+print(run(input10)[2])
 
 
 def rec_pas(value):
@@ -48,7 +42,6 @@ def run2(input_list):
     for i in range(len(temp)):
         if temp[i] == 3:
             res *= rec_pas(count)
-            print(rec_pas(count), count)
             count = 0
         else:
             count += 1

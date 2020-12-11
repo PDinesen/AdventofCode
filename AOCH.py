@@ -15,6 +15,13 @@ def ricl(filename):
     return lines[0].split(',')
 
 
+def split_by(list_name: list, character):
+    temp = []
+    for i in list_name:
+        temp.append(i.split(character))
+    return temp
+
+
 def risl(line):
     return line.split(' ')
 

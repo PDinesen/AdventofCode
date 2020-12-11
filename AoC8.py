@@ -1,13 +1,13 @@
 import AOCH
 
 input8 = AOCH.ril('input8.txt')
-# input8 = AOCH.ril('test')
 
 
 temp = []
 for i in range(len(input8)):
     temp.append(input8[i].split(' '))
     temp[i][1] = int(temp[i][1])
+input8 = temp
 
 
 def run(item_list):
@@ -30,7 +30,7 @@ def run(item_list):
     return [acc, 1]
 
 
-print('First part the acc reached ' + str(run(temp)[0]))
+print('First part the acc reached ' + str(run(input8)[0]))
 
 
 def run2(item_list):
@@ -56,4 +56,4 @@ def run2(item_list):
     return 0
 
 
-print('First part the acc reached ' + str(run2(temp)) + ' where there whore no loops')
+print('Second part the acc reached ' + str(run2(input8)) + ' where there where no loops')
