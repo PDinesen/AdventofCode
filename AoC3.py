@@ -1,5 +1,4 @@
 import AOCH
-
 input3 = AOCH.ril("input3.txt")
 
 
@@ -23,7 +22,6 @@ directions = [[1, 1], [1, 3], [1, 5], [1, 7], [2, 1]]
 res = 1
 for i in directions:
     temp = run(input3, [0, 0], i[0], i[1])
-    print(i, temp)
     res *= temp
 
 print('Result part 2 ' + str(res))

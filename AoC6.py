@@ -1,6 +1,7 @@
 import AOCH
 
 input6 = AOCH.ril('input6.txt')
+print(input6)
 
 
 def run(input_list):
