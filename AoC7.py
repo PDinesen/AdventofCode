@@ -1,7 +1,6 @@
 import AOCH
 
 input7 = AOCH.ril('input7.txt')
-
 input7 = AOCH.split_by(input7, ' ')
 
 

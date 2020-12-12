@@ -96,8 +96,9 @@ def day9(filename):
 
 
 def day10(filename):
-    temp = ril(filename)
-    temp.extend([0, max(temp) + 3])
+    temp = list(map(int, ril(filename)))
+    temp.append(0)
+    temp.append(max(temp) + 3)
     return sorted(temp)
 
 

@@ -26,7 +26,6 @@ def run(input_list):
     return start
 
 
-print(run(AOCH.ril('test')))
 
 end_pos = run(input12)
 print(abs(end_pos[0]) + abs(end_pos[1]))
@@ -38,9 +37,6 @@ def rotate(point, angle):
     qx = cos(angle) * px - sin(angle) * py
     qy = sin(angle) * px + cos(angle) * py
     return [round(qx), round(qy)]
-
-
-print(rotate((1, 0), radians(90)))
 
 
 def run2(input_list, start_waypoint):
@@ -62,10 +58,8 @@ def run2(input_list, start_waypoint):
             point = rotate(point, -radians(int(item[1:])))
         elif item[0] == 'L':
             point = rotate(point, radians(int(item[1:])))
-        print(start, point)
     return start
 
 
-print(run2(AOCH.ril('test'), [10, 1]))
 end_pos = run2(input12, [10, 1])
 print(abs(end_pos[0]) + abs(end_pos[1]))

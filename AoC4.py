@@ -1,6 +1,7 @@
 import AOCH
 from operator import itemgetter
 
+
 input4 = AOCH.passport('input4.txt')
 
 
