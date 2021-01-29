@@ -61,7 +61,3 @@ def run2(input_list, times):
 
 
 print(run2(input15, 30000000))
-"""
-for item in test:
-    print(run2(item, 2020))
-"""

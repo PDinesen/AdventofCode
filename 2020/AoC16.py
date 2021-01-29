@@ -17,8 +17,6 @@ def splitting(filename):
 
 input16 = splitting('input16.txt')
 
-print(input16)
-
 
 def check_valid(list_name, number):
     for i in range(len(list_name[0])):
@@ -53,7 +51,6 @@ def remove_item(index, item):
 
 
 def run2(list_name):
-    print(list_name[1][1])
     temp = []
     for i in range(1, len(list_name[2])):
         good = True
@@ -74,8 +71,6 @@ def run2(list_name):
                 index_list.append(item1[0])
         index.append(index_list)
 
-    print(temp)
-    print(index)
     res_list = {}
     for _ in range(len(index)):
         for i in range(len(index)):
@@ -83,19 +78,12 @@ def run2(list_name):
                 res_list[index[i][0]] = i
                 index = remove_item(index, index[i][0])
                 break
-    print(res_list)
     prod = 1
     for item in res_list:
         if 'departure' in item:
-            print(prod, res_list[item], list_name[1][1][res_list[item]])
             prod *= list_name[1][1][res_list[item]]
     return prod
 
-
-run2(splitting('test1'))
-print(run2(splitting('input16.txt')))
-
-print('de' in 'gjjfde')
-
-
 print(run(input16))
+print(run2(input16))
+

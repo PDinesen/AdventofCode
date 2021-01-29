@@ -39,7 +39,6 @@ def run(filename):
         else:
             res_set_black[pos] = 'Black'
 
-    # print(len(res_set_black))
     return res_set_black
 
 
@@ -56,7 +55,6 @@ def adjacent(res_set_black, place):
                 try:
                     if res_set_black[str([place[0], place[1] + j])] == 'Black':
                         count += 1
-                        # print([place[0], place[1] + j])
                 except KeyError:
                     continue
         else:
@@ -64,7 +62,6 @@ def adjacent(res_set_black, place):
                 try:
                     if res_set_black[str([place[0] + i, place[1] + j])] == 'Black':
                         count += 1
-                        # print([place[0] + i, place[1] + j])
                 except KeyError:
                     continue
     return count
@@ -91,7 +88,6 @@ def get_min_max(res_set_black):
 
 def one(res_set_black):
     min_max = get_min_max(res_set_black)
-    # print(min_max)
     temp = res_set_black.copy()
     for row in range(min_max[0][0] - 1, min_max[0][1] + 2):
         for col in range(min_max[1][0] - 1, min_max[1][1] + 2):

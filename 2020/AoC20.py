@@ -209,11 +209,5 @@ run2('input20.txt')
 
 
 
-# connect_image('test')
-# connect_image('input20.txt')
-# test = '123'
-# print(test[1:-1])
-
-
 
 

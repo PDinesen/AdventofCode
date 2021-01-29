@@ -15,9 +15,6 @@ def initialize(filename):
     return input_list, temp
 
 
-print(initialize('test'))
-
-
 def run(filename):
     input_list, allergens = initialize(filename)
     temp_set = {}
@@ -30,9 +27,9 @@ def run(filename):
                 else:
                     temp = [ingred for ingred in temp if ingred in food[0]]
         temp_set[item] = temp
+
     res = []
     while len(temp_set) > 0:
-        print(temp_set)
         for key in temp_set:
             if len(temp_set[key]) == 1:
                 item = temp_set[key][0]
@@ -42,19 +39,18 @@ def run(filename):
         for i in range(len(input_list)):
             if item in input_list[i][0]:
                 input_list[i][0].remove(item)
-        print(input_list)
         for key1 in temp_set:
             if item in temp_set[key1]:
                 temp_set[key1].remove(item)
         res.append([remove, item])
+
     count = sum([len(item[0]) for item in input_list])
-    print(count)
+    print(count) # Part 1
+
     result_string = ''
     for item in sorted(res, key=itemgetter(0)):
         result_string += item[1] + ','
-    print(result_string[:-1])
-
-    print(temp_set)
+    print(result_string[:-1]) # Part 2
 
     return 0
 
