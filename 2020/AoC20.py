@@ -1,6 +1,6 @@
 import AOCH
 from math import sqrt
-import copy
+from copy import deepcopy
 
 
 def initialize(filename):
@@ -48,7 +48,8 @@ def run(filename):
             prod *= int(key)
     print(prod)
 
-# run('input20.txt')
+#run('test1')
+#run('input20.txt')
 
 
 def is_good(check, against, side):
@@ -133,11 +134,11 @@ def connect_image(filename):
                     for _ in range(4):
                         for _ in range(2):
                             if is_good(temp4[i][j], input_set[key], 'R'):
-                                temp4[i][j+1] = copy.deepcopy(input_set[key])
+                                temp4[i][j+1] = deepcopy(input_set[key])
                                 used.append(key)
                                 temp[i][j+1] = key
                             elif is_good(temp4[i][j], input_set[key], 'D'):
-                                temp4[i + 1][j] = copy.deepcopy(input_set[key])
+                                temp4[i + 1][j] = deepcopy(input_set[key])
                                 used.append(key)
                                 temp[i + 1][j] = key
                             input_set[key] = flip_sideways(input_set[key])
@@ -193,7 +194,7 @@ def run2(filename):
                         image[i] = change_string_item(image[i], j+18, 'O')
                         image[i - 1] = change_string_item(image[i-1], j+18, 'O')
                         image[i] = change_string_item(image[i], j+19, 'O')
-                        temp = copy.deepcopy(image)
+                        temp = deepcopy(image)
             image = image[::-1]
         image = rotate(image)
     count = 0
@@ -203,9 +204,9 @@ def run2(filename):
     print(count)
 
 
+run2('test1')
 
-
-run2('input20.txt')
+#run2('input20.txt')
 
 
 

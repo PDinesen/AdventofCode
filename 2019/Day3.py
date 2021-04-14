@@ -2,24 +2,22 @@ filename = 'input3.txt'
 
 data = [Line.rstrip('\n').split(',') for Line in open(filename)]
 
-print(data)
 
-
-def run(data):
+def run(input_list):
     points = []
-    for line in data:
-        startx, starty = (0, 0)
-        temp = [[startx, starty]]
+    for line in input_list:
+        x, y = (0, 0)
+        temp = [[x, y]]
         for item in line:
             if item[0] == 'U':
-                startx += int(item[1:])
+                x += int(item[1:])
             elif item[0] == 'D':
-                startx -= int(item[1:])
+                x -= int(item[1:])
             elif item[0] == 'R':
-                starty += int(item[1:])
+                y += int(item[1:])
             elif item[0] == 'L':
-                starty -= int(item[1:])
-            temp.append([startx, starty])
+                y -= int(item[1:])
+            temp.append([x, y])
         points.append(temp)
 
     intersects = []
@@ -31,8 +29,6 @@ def run(data):
             elif min(points[0][i][1], points[0][i+1][1]) < points[1][j][1] < max(points[0][i][1], points[0][i+1][1]) and \
                     min(points[1][j][0], points[1][j+1][0]) < points[0][i][0] < max(points[1][j][0], points[1][j+1][0]):
                 intersects.append([points[0][i][0], points[1][j][1]])
-    print(points)
-    print(intersects)
     manhatten = 0
     for point in intersects:
         dist = sum(list(map(abs, point)))
