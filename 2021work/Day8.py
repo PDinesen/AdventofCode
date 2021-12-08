@@ -6,34 +6,36 @@ for item in ind:
 print(count)
 
 ind2 = [item.split(' | ') for item in [line.rstrip('\n') for line in open('input8.txt')]]
-zero = 'abcefg'
-one = 'cf'
-two = 'acdeg'
-tree = 'acdfg'
-four = 'bcdf'
-five = 'abdfg'
-six = 'abdefg'
-seven = 'acf'
-eight = 'abcdefg'
-nine = 'abcdfg'
-
-temp = [zero, one, two, tree, four, five, six, seven, eight, nine]
 
 
 def remove_number(n1, n2):
     return [i for i in n1 if i not in n2]
 
 
+def c_list(default_list):
+    return [sum(len(remove_number(item, item2)) for item in default_list) for item2 in default_list]
+
+
 def find_number(list_numbers):
-    temp = list_numbers
-    check_list = [7, 32, 15, 10, 19, 12, 8, 24, 0, 4]
+    zero = 'abcefg'
+    one = 'cf'
+    two = 'acdeg'
+    tree = 'acdfg'
+    four = 'bcdf'
+    five = 'abdfg'
+    six = 'abdefg'
+    seven = 'acf'
+    eight = 'abcdefg'
+    nine = 'abcdfg'
+
+    temp = [zero, one, two, tree, four, five, six, seven, eight, nine]
+
+    check_list = c_list(temp)
     ans = {}
-    for item in temp:
-        number = sum(len(remove_number(item2, item)) for item2 in temp)
+    for item in list_numbers:
+        number = sum(len(remove_number(item2, item)) for item2 in list_numbers)
         ans[''.join(sorted(item))] = check_list.index(number)
     return ans
-
-
 
 
 def run(input_list):
@@ -51,4 +53,3 @@ def run(input_list):
 
 
 run(ind2)
-
