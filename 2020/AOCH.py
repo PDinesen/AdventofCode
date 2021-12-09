@@ -26,6 +26,7 @@ def risl(line):
     return line.split(' ')
 
 
+
 def group(list_name, split):
     temp = []
     res = []

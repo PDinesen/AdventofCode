@@ -1,21 +1,9 @@
-v = 1001
-print(int(str(v)[1]))
-
-
 def repeating(number):
     s = str(number)
     for letter in s:
         if s.count(letter) == 2:
             return True
     return False
-
-
-def repeatstop(number):
-    s = str(number)
-    for letter in s:
-        if s.count(letter) > 2:
-            return False
-    return True
 
 
 def degrees(number):
