@@ -1,8 +1,6 @@
 def Split(word):
     return [char for char in word]
 
-print(Split('Hej mor'))
-
 
 def input_file(txt_name):
     return [list(map(int, Split(char))) for char in [item.rstrip('\n') for item in open(txt_name)]]
@@ -12,8 +10,7 @@ ind = input_file('input3.txt')
 
 h = len(ind[0])
 v = len(ind)
-print(ind)
-print(h, v)
+
 
 
 
@@ -33,7 +30,6 @@ for num in new_numbers:
         eps += '0'
         gam += '1'
 
-print(new_numbers, int(eps,2), eps, gam)
 print(int(eps,2)*int(gam,2))
 
 def add_lists(lists_to_add):
@@ -42,9 +38,6 @@ def add_lists(lists_to_add):
         for i in range(len(lists_to_add[0])):
             temp[i] += item[i]
     return temp
-
-
-print(add_lists(ind))
 
 
 def answer(my_lists, crit):
@@ -69,12 +62,10 @@ def answer(my_lists, crit):
         if len(res) == 1:
             return res[0]
 
-print(input_file('test.txt'))
 
 eps = answer(ind.copy(), 'eps')
 oxy = answer(ind.copy(), 'ox')
 
-print(eps, oxy)
 print(int(''.join(map(str,eps)),2) * int(''.join(map(str,oxy)),2))
 
 test = [[1,0,1,1],[1,1,0,0]]
