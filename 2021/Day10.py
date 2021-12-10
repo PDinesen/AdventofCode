@@ -1,4 +1,3 @@
-import statistics
 ind = [line.rstrip('\n') for line in open('input10.txt')]
 
 points1 = {')': 3,
@@ -42,7 +41,7 @@ def run(input_string):
             total += points2[char]
         ans2_list.append(total)
     ans2_list.sort()
-    print(statistics.median(ans2_list))
+    print(ans2_list[len(ans2_list)//2])
 
 
 if __name__ == '__main__':
