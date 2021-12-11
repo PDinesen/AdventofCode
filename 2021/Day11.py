@@ -18,50 +18,50 @@ def increase(grid):
     return temp
 
 
-
-
 def flashes(grid):
     zeros = []
-    sync = False
-    flashes = 0
+    flash = 0
     rows = len(grid)
     cols = len(grid[0])
     while not all(max(elem) <= 9 for elem in [lines for lines in grid]):
         for x in range(rows):
             for y in range(cols):
                 if grid[x][y] > 9:
-                    flashes += 1
+                    flash += 1
                     zeros.append((x, y))
                     for i, j in neighbor_pos((x, y), rows, cols):
                         grid[i][j] += 1
         for x, y in zeros:
             grid[x][y] = 0
 
-    return grid, flashes
+    return grid, flash
 
 
 def step(grid):
     return flashes(increase(grid))
 
 
-def run(ind, n):
+def run(grid, n):
     flash = 0
     for i in range(n):
-        ind, f = step(ind)
+        grid, f = step(grid)
         flash += f
-        if max(max(line) for line in ind) == 0:
+        if max(max(line) for line in grid) == 0:
             print(i+1)
 
     print(flash)
 
+
 run(ind, 100)
 
-def run2(ind):
+
+def run2(grid):
     i = 0
     while True:
         i += 1
-        ind, _ = step(ind)
-        if max(max(line) for line in ind) == 0:
+        grid, _ = step(grid)
+        if max(max(line) for line in grid) == 0:
             return i
+
 
 print(run2(ind))
