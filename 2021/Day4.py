@@ -28,7 +28,7 @@ def c_board(used, table):
         c = True
         temp_row = []
         temp_col = []
-        for j in range(len(table)):
+        for j in range(len(table[i])):
             temp_row.append(table[i][j])
             temp_col.append(table[j][i])
             if table[i][j] not in used:
@@ -39,11 +39,9 @@ def c_board(used, table):
                 if table[j][i] not in not_used:
                     not_used.append(table[j][i])
                 c = False
-        if r:
-            res, us = temp_row, used[-1]
-        elif c:
-            res, us = temp_col, used[-1]
-    return res, us, not_used
+        if r or c:
+            us = used[-1]
+    return us, not_used
 
 
 def run(input_lines):
@@ -52,22 +50,30 @@ def run(input_lines):
     for inst in ins:
         used.append(inst)
         for board in boards:
-            b, u, nu = c_board(used, board)
+            u, nu = c_board(used, board)
             if u is not None:
-                print(u * sum(nu))
+                return u * sum(nu)
 
 
 def run2(input_lines):
     instructions, input_boards = initial(input_lines)
     used = []
-    b, u, nu = None, None, None
     for inst in instructions:
+        print(inst)
         used.append(inst)
         temp = []
         for table in input_boards:
-            b, u, nu = c_board(used, table)
+            u, nu = c_board(used, table)
             if u is not None:
                 temp.append(table)
         input_boards = temp
         if len(input_boards) == 0:
-            print(u * sum(nu))
+            print('here')
+            print(used[-1])
+            print(inst, u, nu)
+            return u * sum(nu)
+
+
+if __name__ == '__main__':
+    print(run(lines))
+    print(run2(lines))
