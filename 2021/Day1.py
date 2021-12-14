@@ -9,10 +9,7 @@ def answer(txt_name, n, task_number):
     print('task ' + str(task_number) + ' : ' + str(ans))
     return 0
 
-print('hi')
-
 
 if __name__ == '__main__':
     answer('input1.txt', 1, 1)
     answer('input1.txt', 3, 2)
-
