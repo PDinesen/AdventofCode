@@ -1,7 +1,5 @@
-ind = [line.rstrip("\n") for line in open('test2.txt')]
-
-
-def initialize(ind):
+def initialize(filename):
+    ind = [line.rstrip("\n") for line in open(filename)]
     enhancement = ind[0]
     image = set()
     temp = ind[2:]
@@ -12,41 +10,48 @@ def initialize(ind):
     return enhancement, image
 
 
-def step(enhancement, image):
-    minx, miny = min(x for x, _ in image), min(y for _, y in image)
-    maxx, maxy = max(x for x, _ in image), max(y for _, y in image)
+def step(enhancement, image, even=False):
+    min_x, min_y = min(x for x, _ in image), min(y for _, y in image)
+    max_x, max_y = max(x for x, _ in image), max(y for _, y in image)
     new_image = set()
-    for x in range(minx - 2, maxx + 3):
-        for y in range(miny - 2, maxy + 3):
+    odd_image = enhancement[0]
+    for x in range(min_x - 1, max_x + 2):
+        for y in range(min_y - 1, max_y + 2):
             lookup = ''
             for i in range(-1, 2):
                 for j in range(-1, 2):
-                    if (x + i, y + j) in image:
-                        lookup += '1'
+                    if ((x + i) < min_x or (x + i) > max_x or (y + j) < min_y or (y + j) > max_y) and even:
+                        if odd_image == '#':
+                            lookup += '1'
+                        else:
+                            lookup += '0'
                     else:
-                        lookup += '0'
+                        if (x + i, y + j) in image:
+                            lookup += '1'
+                        else:
+                            lookup += '0'
             if enhancement[int(lookup, 2)] == '#':
                 new_image.add((x, y))
     return new_image
 
 
-def run(ind, n):
-    enhancement, image = initialize(ind)
-    for _ in range(n):
-        image = step(enhancement, image)
+def run(filename, n):
+    enhancement, image = initialize(filename)
+    for i in range(1, n + 1):
+        if i % 2 == 0:
+            image = step(enhancement, image, True)
+        else:
+            image = step(enhancement, image)
+    print(len(image))
     return image
 
 
-image = run(ind, 2)
-print(len(image))
-
-
 def print_board(image):
-    minx, miny, maxx, maxy = min(x for x, y in image), min(y for x, y in image), max(x for x, _ in image), max(y for _, y in image)
-
-    for i in range(minx, maxx + 1):
+    min_x, min_y = min(x for x, y in image), min(y for x, y in image)
+    max_x, max_y = max(x for x, _ in image), max(y for _, y in image)
+    for i in range(min_x, max_x + 1):
         output = ''
-        for j in range(miny, maxy + 1):
+        for j in range(min_y, max_y + 1):
             if (i, j) in image:
                 output += '#'
             else:
@@ -54,4 +59,7 @@ def print_board(image):
         print(output)
 
 
-print_board(image)
+if __name__ == '__main__':
+    run('input20.txt', 2)
+    run('input20.txt', 50)
+    # print_board(image)
