@@ -75,7 +75,7 @@ t = time()
 run_new(ind_string, temp, 10)
 print(time() - t)
 t = time()
-run2(ind_string, temp, 20)
+run2(ind_string, temp, 20) # takes 105 sekunds
 print(time() - t)
 
 
