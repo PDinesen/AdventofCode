@@ -1,10 +1,14 @@
+import inflect
+
+
 def solve(txt, task2=False):
     st = [item for item in [contents.rstrip('\n') for contents in open('input/' + txt)]]
 
     res = 0
     test = [str(i) for i in range(10)]
     if task2:
-        test += [' ', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+        p = inflect.engine()
+        test += [p.number_to_words(i) for i in range(10)]
     for word in st:
         low = (len(word), -1)
         high = (-1, -1)
@@ -14,9 +18,7 @@ def solve(txt, task2=False):
                     low = (word.index(tjek), i % 10)
                 if word.rindex(tjek) > high[0]:
                     high = (word.rindex(tjek), i % 10)
-
         res += low[1] * 10 + high[1]
-
     return res
 
 
