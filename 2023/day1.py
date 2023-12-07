@@ -2,7 +2,7 @@ import inflect
 
 
 def solve(txt, task2=False):
-    st = [item for item in [contents.rstrip('\n') for contents in open('input/' + txt)]]
+    st = [item for item in [contents.rstrip('\n') for contents in open('input/' + txt + '.txt')]]
 
     res = 0
     test = [str(i) for i in range(10)]
@@ -23,5 +23,5 @@ def solve(txt, task2=False):
 
 
 if __name__ == '__main__':
-    print('Solution task1: ' + str(solve('day1.txt')))
-    print('Solution task2: ' + str(solve('day1.txt', True)))
+    print('Solution task1: ' + str(solve('day1')))
+    print('Solution task2: ' + str(solve('day1', True)))
