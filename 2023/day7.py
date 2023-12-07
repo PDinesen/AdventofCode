@@ -11,8 +11,7 @@ def solution(txt, part1=True):
             su += sort_order[s] * 10 ** (8 - p * 2)
         return su
 
-    st = [[line[0], int(line[1]), sort_sum(line[0])] for line in [contents.split() for contents in open('input/' +
-                                                                                                        txt + '.txt')]]
+    st = [contents.split() for contents in open('input/' + txt + '.txt')]
     hands = ['FIVE', 'FOUR', 'HOUSE', 'THREE', 'PAIRS', 'PAIR', 'HIGH']
 
     def get_type(_hand, part=True):
@@ -64,14 +63,14 @@ def solution(txt, part1=True):
             order[typed] = [item]
 
     for key in order:
-        order[key].sort(key=lambda x: x[2])
+        order[key].sort(key=lambda x: sum(sort_order[i] * 10**(8 - p*2) for p, i in enumerate(x[0])))
 
     res = 0
     rank = 1
     for hand in hands[::-1]:
         if hand in order.keys():
             for item in order[hand]:
-                res += rank * item[1]
+                res += rank * int(item[1])
                 rank += 1
 
     print(res)
