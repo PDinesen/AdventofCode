@@ -7,4 +7,4 @@ def solve(txt_name):
 
 
 if __name__ == '__main__':
-    solve('test.txt')
+    solve('test.txt.txt')

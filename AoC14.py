@@ -19,7 +19,7 @@ def split_in_list(filename):
     return temp3
 
 
-input14 = split_in_list('test')
+input14 = split_in_list('test.txt')
 
 
 def run(input_list):
