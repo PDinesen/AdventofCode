@@ -35,8 +35,6 @@ def solve(txt_name):
             v = verts[(width * i) + j]
             if (i, j) == start_pos:
                 v.name = 'S'
-            else:
-                v.name = str(c)
             if c == 0:
                 targets.append(v)
             elif (i, j) == end_pos:
@@ -74,7 +72,6 @@ def solve(txt_name):
                     alt = u.dist + 1  # Graph distance is always 1
                     if alt < node.dist:
                         node.dist = alt
-                        node.prev = u
 
     dijkstra(verts, source)
     part1 = None
