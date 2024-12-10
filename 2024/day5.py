@@ -46,7 +46,6 @@ result = 0
 result2 = 0
 
 for up in updates:
-    print(up)
     if not bad(up):
         result += int(up[len(up)//2])
     else:
