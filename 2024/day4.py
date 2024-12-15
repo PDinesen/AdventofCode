@@ -37,4 +37,3 @@ print(directions)
 print(count2)
 
 print(count)
-

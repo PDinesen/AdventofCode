@@ -1,7 +1,7 @@
 st = [item for item in [contents.rstrip('\n') for contents in open('input/' + 'day6' + '.txt')]]
 
 print(st)
-
+start_pos = None
 for i in range(len(st)):
     if '^' in st[i]:
         print(i, st[i].index('^'))
@@ -25,7 +25,7 @@ while still_here:
     elif st[nr][nc] == '#':
         d = directions[(directions.index(d) + 1) % len(directions)]
     else:
-        visit.add((nr,nc))
+        visit.add((nr, nc))
         curr_pos = (nr, nc)
 
 print(len(visit))
@@ -62,4 +62,3 @@ for r, c in visit:
         print(j)
 
 print(count)
-

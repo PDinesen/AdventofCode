@@ -47,17 +47,3 @@ for k in d.keys():
 
 
 print(len(anti2))
-
-print(anti2)
-
-for r in range(rows):
-    line = ''
-    for c in range(cols):
-        if (r, c) in anti2:
-            line += '#'
-        else:
-            line += '.'
-    print(line)
-
-print(len(anti2))
-

@@ -21,10 +21,10 @@ for mul in matches:
 print(p)
 
 do = "do()"
-dont = "don't()"
+do_not = "don't()"
 
 m2 = []
-stop = st.find(dont)
+stop = st.find(do_not)
 temp = st
 while stop != -1:
     for x in re.findall(match, temp[: stop]):
@@ -34,7 +34,7 @@ while stop != -1:
     temp = temp[temp.find(do):]
     print(len(temp))
     print(temp[:4])
-    stop = temp.find(dont)
+    stop = temp.find(do_not)
 
 p2 = 0
 for mul in m2:
@@ -42,5 +42,3 @@ for mul in m2:
     p2 += int(n[0]) * int(n[1])
 
 print(p2)
-
-

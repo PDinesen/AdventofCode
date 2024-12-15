@@ -1,4 +1,3 @@
-from time import sleep
 st = [item.split(' ') for item in [content.rstrip('\n') for content in open('input/' + 'day14' + '.txt')]]
 robots = []
 
@@ -69,6 +68,7 @@ def find_top(positions, rows):
             return True
     return False
 
+
 run(robots, 101, 103, 100)
 
 for i in range(10000):
@@ -76,4 +76,3 @@ for i in range(10000):
     if find_top(robot_positions, 5):
         print_bathroom(robot_positions, 101, 103)
         break
-

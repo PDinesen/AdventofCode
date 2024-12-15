@@ -1,11 +1,8 @@
 from functools import wraps
 
+st = None
 for item in [contents.rstrip('\n') for contents in open('input/' + 'day11' + '.txt')]:
     st = item.split(' ')
-##st = ['125', '17']
-##print(st)
-
-
 
 
 def blink(stone):
@@ -17,27 +14,23 @@ def blink(stone):
         return [str(int(stone) * 2024)]
 
 
-test = ['0', '1', '10']
-print(test)
-for el in test:
-    print(blink(el))
-
 track = dict()
 
 not_continue = []
+
 
 def run(times, stones):
     temp = stones
     for i in range(times):
         new = []
-        for el in temp:
-            for el2 in blink(el):
+        for element in temp:
+            for el2 in blink(element):
                 new.append(el2)
         temp = new
     print(len(temp))
 
-run(25, st)
 
+run(25, st)
 
 
 def memoize(func):
@@ -59,5 +52,6 @@ def count_stones(stone, blinks):
     if blinks == 0:
         return 1
     return sum(count_stones(s, blinks - 1) for s in blink(stone))
+
 
 print(sum(count_stones(stone, 75) for stone in st))

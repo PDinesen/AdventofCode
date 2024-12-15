@@ -5,19 +5,23 @@ t0 = time.time()
 hole_grid = [(x, y) for x in range(len(st)) for y in range(len(st[0]))]
 directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
+
 def find_round(grid, position, rest):
-    r, c = position
+    row, col = position
     n = []
     f = 4
     f_direction = []
-    for dr, dc in directions:
-        if 0 <= r + dr < len(grid) and 0 <= c + dc < len(grid[0]) and grid[r + dr][c + dc] == grid[r][c]:
+    for dir_r, dir_c in directions:
+        if 0 <= row + dir_r < len(grid) and \
+                0 <= col + dir_c < len(grid[0]) and \
+                grid[row + dir_r][col + dir_c] == grid[row][col]:
             f -= 1
-            if (r + dr, c + dc) in rest:
-                n.append((r + dr, c + dc))
+            if (row + dir_r, col + dir_c) in rest:
+                n.append((row + dir_r, col + dir_c))
         else:
-            f_direction.append(((r, c), (dr, dc)))
+            f_direction.append(((row, col), (dir_r, dir_c)))
     return n, f, f_direction
+
 
 res = 0
 res2 = 0

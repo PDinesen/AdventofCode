@@ -1,6 +1,6 @@
 
 
-def isSafe(listen):
+def is_safe(listen):
     good = True
     if listen[0] < listen[-1]:
         for i in range(0, len(listen) - 1):
@@ -14,16 +14,17 @@ def isSafe(listen):
 
 
 if __name__ == '__main__':
-    st = [list(map(int, item.split(' '))) for item in [contents.rstrip('\n') for contents in open('input/' + 'day2' + '.txt')]]
+    st = [list(map(int, item.split(' '))) for item in
+          [contents.rstrip('\n') for contents in open('input/' + 'day2' + '.txt')]]
 
     safe = 0
     safe2 = 0
     for item in st:
-        if isSafe(item):
+        if is_safe(item):
             safe += 1
         else:
             for j in range(len(item)):
-                if isSafe(item[:j] + item[j + 1:]):
+                if is_safe(item[:j] + item[j + 1:]):
                     safe2 += 1
                     break
 
